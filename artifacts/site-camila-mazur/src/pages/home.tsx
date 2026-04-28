@@ -3,6 +3,9 @@ import { motion } from "framer-motion";
 import { MapPin, MessageCircle, Instagram, Mail, ChevronDown, ArrowRight, Heart, Sparkles, Phone, GraduationCap, FileSignature, MessageSquare, BookOpen, Handshake } from "lucide-react";
 import fotoCamila from "@assets/foto_camila.jpg";
 import logoCamila from "@assets/logo_camila.png";
+import fotoConsultorio from "@assets/IMG-20260413-WA0002_1777405959341.jpg";
+import fotoFicha from "@assets/MVIMG_20260411_161622_1777405959349.jpg";
+import fotoRetratoClinica from "@assets/IMG_20260411_161427_1777405959354.jpg";
 
 const FADE_UP = {
   hidden: { opacity: 0, y: 30 },
@@ -167,6 +170,14 @@ export default function Home() {
                 className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-1000"
               />
             </div>
+            {/* Floating polaroid-style second photo */}
+            <div className="hidden md:block absolute -top-6 -left-6 w-32 h-40 lg:w-40 lg:h-52 rounded-xl overflow-hidden shadow-2xl border-4 border-background rotate-[-6deg] hover:rotate-0 transition-transform duration-500">
+              <img 
+                src={fotoRetratoClinica} 
+                alt="Camila Mazur no consultório" 
+                className="w-full h-full object-cover"
+              />
+            </div>
             {/* Decorative badge */}
             <div className="absolute -bottom-6 -right-6 md:-right-12 bg-background p-6 rounded-2xl shadow-xl border border-border/50 max-w-[200px]">
               <p className="font-serif italic text-xl text-primary mb-1">CRP</p>
@@ -227,6 +238,25 @@ export default function Home() {
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               Um momento de acolhimento, escuta e construção de uma relação de confiança.
             </p>
+          </motion.div>
+
+          {/* Featured image */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="relative mb-12 rounded-3xl overflow-hidden shadow-xl max-w-3xl mx-auto"
+          >
+            <img
+              src={fotoFicha}
+              alt="Ficha de cadastro do paciente sendo preenchida no consultório"
+              className="w-full h-64 md:h-96 object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent" />
+            <div className="absolute bottom-6 left-6 right-6 text-white">
+              <p className="font-serif italic text-xl md:text-2xl">"O início de um cuidado que respeita você."</p>
+            </div>
           </motion.div>
 
           <motion.div 
@@ -318,8 +348,16 @@ export default function Home() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={FADE_UP}
-              className="bg-card p-10 md:p-14 rounded-3xl border border-border"
+              className="bg-card rounded-3xl border border-border overflow-hidden"
             >
+              <div className="aspect-[4/3] overflow-hidden">
+                <img 
+                  src={fotoConsultorio} 
+                  alt="Camila Mazur no consultório clínico em Campo Largo"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000"
+                />
+              </div>
+              <div className="p-10 md:p-14">
               <h3 className="font-serif text-3xl text-primary mb-6 flex items-center gap-4">
                 <span className="w-12 h-[1px] bg-accent"></span>
                 Atuação na Clínica
@@ -358,6 +396,7 @@ export default function Home() {
                     Pessoas que desejam se compreender melhor; Quem enfrenta conflitos familiares, conjugais ou profissionais.
                   </p>
                 </div>
+              </div>
               </div>
             </motion.div>
 
