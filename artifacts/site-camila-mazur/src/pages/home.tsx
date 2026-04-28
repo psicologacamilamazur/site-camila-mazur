@@ -83,7 +83,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className="bg-primary text-primary-foreground px-8 py-4 rounded-full text-base font-medium hover:bg-primary/90 transition-all flex items-center gap-2 hover:scale-105"
             >
-              Agendar uma conversa
+              Entre em contato
               <ArrowRight className="w-4 h-4" />
             </a>
           </motion.div>
@@ -164,6 +164,7 @@ export default function Home() {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={STAGGER}
+            className="text-center md:text-left"
           >
             <motion.h2 variants={FADE_UP} className="font-serif text-4xl md:text-5xl text-primary mb-6">
               Quem eu sou
