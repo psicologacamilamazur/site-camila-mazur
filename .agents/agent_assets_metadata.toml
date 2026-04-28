@@ -1,0 +1,14 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "j2o8ZbytmYiP7EbmkMAT3"
+uri = "file://artifacts/site-camila-mazur/public/images/abstract-bg-1.png"
+type = "image"
+title = "soft watercolor abstract background"
+
+[[generated]]
+id = "ZnJt3HtuJOrqImp7KuV-E"
+uri = "file://artifacts/site-camila-mazur/public/images/abstract-bg-2.png"
+type = "image"
+title = "organic shapes abstract"
