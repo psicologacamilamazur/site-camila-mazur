@@ -50,7 +50,7 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex flex-col justify-center items-center text-center px-6 pt-24 pb-12 overflow-hidden">
+      <section className="relative min-h-[90vh] flex flex-col justify-center items-center text-center px-4 sm:px-6 pt-24 pb-12 overflow-hidden">
         {/* Subtle decorative background elements */}
         <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-secondary/30 blur-[100px] pointer-events-none" />
         <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] rounded-full bg-[#E5D5C5]/40 blur-[120px] pointer-events-none" />
@@ -68,11 +68,11 @@ export default function Home() {
             className="w-24 md:w-32 mb-8 opacity-90"
           />
           
-          <motion.h1 variants={FADE_UP} className="font-serif text-5xl md:text-7xl lg:text-8xl leading-tight mb-4 text-primary">
+          <motion.h1 variants={FADE_UP} className="font-serif text-[2.5rem] sm:text-5xl md:text-7xl lg:text-8xl leading-[1.05] mb-4 text-primary text-balance px-2">
             Um espaço de <span className="italic text-accent">cuidado</span>, escuta e desenvolvimento.
           </motion.h1>
           
-          <motion.p variants={FADE_UP} className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
+          <motion.p variants={FADE_UP} className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed text-balance px-2">
             Psicóloga Clínica e Organizacional. Uma abordagem sistêmica com respeito à sua história e ao seu processo.
           </motion.p>
           
