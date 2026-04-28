@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
-import { MapPin, MessageCircle, Instagram, Mail, ChevronDown, ArrowRight } from "lucide-react";
+import { MapPin, MessageCircle, Instagram, Mail, ChevronDown, ArrowRight, Heart, Sparkles, Phone } from "lucide-react";
 import fotoCamila from "@assets/foto_camila.jpg";
 import logoCamila from "@assets/logo_camila.png";
 
@@ -87,6 +87,42 @@ export default function Home() {
               <ArrowRight className="w-4 h-4" />
             </a>
           </motion.div>
+
+          {/* Quick Access Buttons */}
+          <motion.div 
+            variants={FADE_UP}
+            className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-3xl"
+          >
+            <button
+              onClick={() => scrollTo("sobre")}
+              className="group flex items-center justify-center gap-3 bg-card/80 backdrop-blur-sm border border-border hover:border-accent/60 hover:bg-card px-6 py-5 rounded-2xl shadow-sm hover:shadow-md transition-all hover:-translate-y-1"
+            >
+              <div className="w-10 h-10 rounded-full bg-secondary/60 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
+                <Heart className="w-4 h-4 text-primary" />
+              </div>
+              <span className="font-serif text-lg text-primary">Quem eu sou</span>
+            </button>
+
+            <button
+              onClick={() => scrollTo("areas")}
+              className="group flex items-center justify-center gap-3 bg-card/80 backdrop-blur-sm border border-border hover:border-accent/60 hover:bg-card px-6 py-5 rounded-2xl shadow-sm hover:shadow-md transition-all hover:-translate-y-1"
+            >
+              <div className="w-10 h-10 rounded-full bg-secondary/60 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
+                <Sparkles className="w-4 h-4 text-primary" />
+              </div>
+              <span className="font-serif text-lg text-primary">Áreas de atuação</span>
+            </button>
+
+            <button
+              onClick={() => scrollTo("contato")}
+              className="group flex items-center justify-center gap-3 bg-card/80 backdrop-blur-sm border border-border hover:border-accent/60 hover:bg-card px-6 py-5 rounded-2xl shadow-sm hover:shadow-md transition-all hover:-translate-y-1"
+            >
+              <div className="w-10 h-10 rounded-full bg-secondary/60 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
+                <Phone className="w-4 h-4 text-primary" />
+              </div>
+              <span className="font-serif text-lg text-primary">Contato</span>
+            </button>
+          </motion.div>
         </motion.div>
 
         <motion.div 
@@ -100,7 +136,7 @@ export default function Home() {
       </section>
 
       {/* Sobre Section */}
-      <section id="sobre" className="py-24 px-6 md:px-12 bg-card relative">
+      <section id="sobre" className="py-24 px-6 md:px-12 bg-card relative scroll-mt-20">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <motion.div 
             initial="hidden"
@@ -145,7 +181,7 @@ export default function Home() {
       </section>
 
       {/* Áreas de Atuação */}
-      <section className="py-24 px-6 md:px-12">
+      <section id="areas" className="py-24 px-6 md:px-12 scroll-mt-20">
         <div className="max-w-6xl mx-auto">
           <motion.div 
             initial="hidden"
@@ -156,7 +192,7 @@ export default function Home() {
           >
             <h2 className="font-serif text-4xl md:text-5xl text-primary mb-4">Áreas de Atuação</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Cuidado especializado voltado para o desenvolvimento pessoal e corporativo.
+              Cuidado voltado para o desenvolvimento pessoal e corporativo.
             </p>
           </motion.div>
 
@@ -280,7 +316,7 @@ export default function Home() {
       </section>
 
       {/* CTA / Footer */}
-      <footer id="contato" className="bg-[#E5D5C5]/20 pt-24 pb-12 px-6 md:px-12 mt-auto border-t border-border">
+      <footer id="contato" className="bg-[#E5D5C5]/20 pt-24 pb-12 px-6 md:px-12 mt-auto border-t border-border scroll-mt-20">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-20">
             <motion.div 

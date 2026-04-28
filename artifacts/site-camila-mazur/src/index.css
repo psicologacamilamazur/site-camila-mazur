@@ -100,8 +100,8 @@
   --chart-4: 40 25% 82%;
   --chart-5: 216 20% 40%;
 
-  --app-font-sans: 'Manrope', sans-serif;
-  --app-font-serif: 'Cormorant Garamond', serif;
+  --app-font-sans: 'Nunito', sans-serif;
+  --app-font-serif: 'Fraunces', serif;
   --app-font-mono: Menlo, monospace;
   --radius: .5rem;
 }
