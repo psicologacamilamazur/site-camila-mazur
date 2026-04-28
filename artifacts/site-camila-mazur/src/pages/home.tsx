@@ -469,7 +469,7 @@ export default function Home() {
                   <span>camilamazurpsi@gmail.com</span>
                 </a>
                 
-                <a href="https://instagram.com/psicamilamazur" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-foreground/80 hover:text-accent transition-colors group">
+                <a href="https://www.instagram.com/psicamilamazur?igsh=MWNka2FheTQza2N2Yw==" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-foreground/80 hover:text-accent transition-colors group">
                   <div className="w-10 h-10 rounded-full bg-card flex items-center justify-center border border-border group-hover:border-accent/30">
                     <Instagram className="w-4 h-4" />
                   </div>
