@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
-import { MapPin, MessageCircle, Instagram, Mail, ChevronDown, ArrowRight, Heart, Sparkles, Phone, GraduationCap, FileSignature, MessageSquare, BookOpen, Handshake } from "lucide-react";
+import { MapPin, MessageCircle, Instagram, Mail, ChevronDown, ArrowRight, Heart, Sparkles, Phone, GraduationCap, FileSignature, MessageSquare, BookOpen, Handshake, Clock, Users, Building2, Lightbulb, Leaf, Quote } from "lucide-react";
 import fotoCamila from "@assets/foto_camila.jpg";
 import logoCamila from "@assets/logo_camila.png";
 import fotoConsultorio from "@assets/IMG-20260413-WA0002_1777405959341.jpg";
@@ -43,8 +43,36 @@ export default function Home() {
         </svg>
       </a>
 
+      {/* Top Info Bar */}
+      <div className="fixed top-0 left-0 right-0 z-50 bg-primary text-primary-foreground text-xs md:text-sm">
+        <div className="max-w-7xl mx-auto px-4 md:px-12 py-2 flex items-center justify-between gap-4">
+          <div className="flex items-center gap-4 md:gap-6 overflow-hidden">
+            <span className="hidden sm:flex items-center gap-1.5">
+              <MapPin className="w-3.5 h-3.5 text-accent shrink-0" />
+              <span className="truncate">Campo Largo / PR</span>
+            </span>
+            <span className="hidden md:flex items-center gap-1.5">
+              <Clock className="w-3.5 h-3.5 text-accent shrink-0" />
+              <span>Atendimento Presencial e Online</span>
+            </span>
+            <a href="https://wa.me/5541991275204" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-accent transition-colors">
+              <Phone className="w-3.5 h-3.5 text-accent shrink-0" />
+              <span>(41) 99127-5204</span>
+            </a>
+          </div>
+          <div className="flex items-center gap-3 md:gap-4 shrink-0">
+            <a href="https://www.instagram.com/psicamilamazur?igsh=MWNka2FheTQza2N2Yw==" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-accent transition-colors">
+              <Instagram className="w-4 h-4" />
+            </a>
+            <a href="mailto:camilamazurpsi@gmail.com" aria-label="Email" className="hover:text-accent transition-colors">
+              <Mail className="w-4 h-4" />
+            </a>
+          </div>
+        </div>
+      </div>
+
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 py-4 px-6 md:px-12 flex items-center justify-between bg-background/80 backdrop-blur-md border-b border-border/50 transition-all duration-300">
+      <nav className="fixed top-[34px] md:top-[36px] left-0 right-0 z-40 py-4 px-6 md:px-12 flex items-center justify-between bg-background/85 backdrop-blur-md border-b border-border/50 transition-all duration-300">
         <div className="flex items-center gap-3">
           <img src={logoCamila} alt="Logo Camila Mazur" className="w-10 h-10 object-contain" />
           <span className="font-serif text-xl font-medium tracking-wide hidden md:block">Camila Mazur</span>
@@ -68,7 +96,7 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex flex-col justify-center items-center text-center px-4 sm:px-6 pt-24 pb-12 overflow-hidden">
+      <section className="relative min-h-[90vh] flex flex-col justify-center items-center text-center px-4 sm:px-6 pt-36 pb-12 overflow-hidden">
         {/* Subtle decorative background elements */}
         <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-secondary/30 blur-[100px] pointer-events-none" />
         <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] rounded-full bg-[#E5D5C5]/40 blur-[120px] pointer-events-none" />
@@ -154,7 +182,7 @@ export default function Home() {
       </section>
 
       {/* Sobre Section */}
-      <section id="sobre" className="py-24 px-6 md:px-12 bg-card relative scroll-mt-20">
+      <section id="sobre" className="py-24 px-6 md:px-12 bg-card relative scroll-mt-32">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <motion.div 
             initial="hidden"
@@ -192,6 +220,12 @@ export default function Home() {
             variants={STAGGER}
             className="text-center md:text-left"
           >
+            <motion.div variants={FADE_UP} className="flex items-center justify-center md:justify-start gap-3 mb-4">
+              <span className="w-10 h-10 rounded-full bg-secondary/60 flex items-center justify-center">
+                <Heart className="w-4 h-4 text-primary" />
+              </span>
+              <span className="font-sans uppercase tracking-[0.25em] text-xs text-accent">Sobre Mim</span>
+            </motion.div>
             <motion.h2 variants={FADE_UP} className="font-serif text-4xl md:text-5xl text-primary mb-6">
               Quem eu sou
             </motion.h2>
@@ -222,7 +256,7 @@ export default function Home() {
       </section>
 
       {/* Primeira Sessão */}
-      <section id="primeira-sessao" className="py-24 px-6 md:px-12 scroll-mt-20 relative overflow-hidden">
+      <section id="primeira-sessao" className="py-24 px-6 md:px-12 scroll-mt-32 relative overflow-hidden">
         <div className="absolute top-1/2 -translate-y-1/2 right-[-15%] w-[40%] h-[60%] rounded-full bg-secondary/20 blur-[120px] pointer-events-none" />
         
         <div className="max-w-5xl mx-auto relative z-10">
@@ -233,7 +267,12 @@ export default function Home() {
             variants={FADE_UP}
             className="text-center mb-16"
           >
-            <span className="inline-block font-sans uppercase tracking-[0.25em] text-xs text-accent mb-4">Como funciona</span>
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <span className="w-10 h-10 rounded-full bg-secondary/60 flex items-center justify-center">
+                <Sparkles className="w-4 h-4 text-primary" />
+              </span>
+              <span className="font-sans uppercase tracking-[0.25em] text-xs text-accent">Como funciona</span>
+            </div>
             <h2 className="font-serif text-4xl md:text-5xl text-primary mb-4">A Primeira Sessão</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               Um momento de acolhimento, escuta e construção de uma relação de confiança.
@@ -324,7 +363,7 @@ export default function Home() {
       </section>
 
       {/* Áreas de Atuação */}
-      <section id="areas" className="py-24 px-6 md:px-12 scroll-mt-20">
+      <section id="areas" className="py-24 px-6 md:px-12 scroll-mt-32">
         <div className="max-w-6xl mx-auto">
           <motion.div 
             initial="hidden"
@@ -333,6 +372,12 @@ export default function Home() {
             variants={FADE_UP}
             className="text-center mb-16"
           >
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <span className="w-10 h-10 rounded-full bg-secondary/60 flex items-center justify-center">
+                <Leaf className="w-4 h-4 text-primary" />
+              </span>
+              <span className="font-sans uppercase tracking-[0.25em] text-xs text-accent">O que eu faço</span>
+            </div>
             <h2 className="font-serif text-4xl md:text-5xl text-primary mb-4">Áreas de Atuação</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Cuidado voltado para o desenvolvimento pessoal e corporativo.
@@ -373,7 +418,10 @@ export default function Home() {
                 
                 <div className="grid grid-cols-2 gap-6">
                   <div>
-                    <h4 className="font-sans font-semibold text-sm uppercase tracking-wider text-muted-foreground mb-2">Público</h4>
+                    <h4 className="font-sans font-semibold text-sm uppercase tracking-wider text-muted-foreground mb-3 flex items-center gap-2">
+                      <Users className="w-4 h-4 text-accent" />
+                      Público
+                    </h4>
                     <ul className="space-y-1 text-foreground/80">
                       <li>Adolescentes</li>
                       <li>Adultos</li>
@@ -382,7 +430,10 @@ export default function Home() {
                     </ul>
                   </div>
                   <div>
-                    <h4 className="font-sans font-semibold text-sm uppercase tracking-wider text-muted-foreground mb-2">Modalidade</h4>
+                    <h4 className="font-sans font-semibold text-sm uppercase tracking-wider text-muted-foreground mb-3 flex items-center gap-2">
+                      <Building2 className="w-4 h-4 text-accent" />
+                      Modalidade
+                    </h4>
                     <ul className="space-y-1 text-foreground/80">
                       <li>Presencial (Campo Largo/PR)</li>
                       <li>Online</li>
@@ -468,7 +519,7 @@ export default function Home() {
       </section>
 
       {/* CTA / Footer */}
-      <footer id="contato" className="bg-[#E5D5C5]/20 pt-24 pb-12 px-6 md:px-12 mt-auto border-t border-border scroll-mt-20">
+      <footer id="contato" className="bg-[#E5D5C5]/20 pt-24 pb-12 px-6 md:px-12 mt-auto border-t border-border scroll-mt-32">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-20">
             <motion.div 
@@ -477,6 +528,12 @@ export default function Home() {
               viewport={{ once: true }}
               variants={STAGGER}
             >
+              <motion.div variants={FADE_UP} className="flex items-center gap-3 mb-4">
+                <span className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                  <MessageCircle className="w-4 h-4 text-primary" />
+                </span>
+                <span className="font-sans uppercase tracking-[0.25em] text-xs text-accent">Contato</span>
+              </motion.div>
               <motion.h2 variants={FADE_UP} className="font-serif text-4xl md:text-6xl text-primary mb-6 leading-tight">
                 Vamos conversar?
               </motion.h2>
