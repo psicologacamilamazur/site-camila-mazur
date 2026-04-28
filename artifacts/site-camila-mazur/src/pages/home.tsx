@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
-import { MapPin, MessageCircle, Instagram, Mail, ChevronDown, ArrowRight, Heart, Sparkles, Phone } from "lucide-react";
+import { MapPin, MessageCircle, Instagram, Mail, ChevronDown, ArrowRight, Heart, Sparkles, Phone, GraduationCap, FileSignature, MessageSquare, BookOpen, Handshake } from "lucide-react";
 import fotoCamila from "@assets/foto_camila.jpg";
 import logoCamila from "@assets/logo_camila.png";
 
@@ -34,6 +34,7 @@ export default function Home() {
         </div>
         <div className="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide">
           <button onClick={() => scrollTo("sobre")} className="hover:text-accent transition-colors">Sobre</button>
+          <button onClick={() => scrollTo("primeira-sessao")} className="hover:text-accent transition-colors">Primeira Sessão</button>
           <button onClick={() => scrollTo("clinica")} className="hover:text-accent transition-colors">Clínica</button>
           <button onClick={() => scrollTo("organizacional")} className="hover:text-accent transition-colors">Organizacional</button>
           <button onClick={() => scrollTo("contato")} className="hover:text-accent transition-colors">Contato</button>
@@ -177,7 +178,104 @@ export default function Home() {
                 Meu trabalho é orientado pelo respeito à singularidade de cada pessoa, pela ética e pela compreensão de que o bem-estar emocional se constrói também nas relações.
               </p>
             </motion.div>
+
+            <motion.div 
+              variants={FADE_UP} 
+              className="mt-10 flex items-start gap-4 p-6 bg-background/60 rounded-2xl border border-border/60"
+            >
+              <div className="w-12 h-12 rounded-full bg-secondary/60 flex items-center justify-center shrink-0">
+                <GraduationCap className="w-5 h-5 text-primary" />
+              </div>
+              <div className="text-left">
+                <h3 className="font-sans font-semibold text-sm uppercase tracking-wider text-muted-foreground mb-1">Formação</h3>
+                <p className="font-serif text-lg text-primary">Graduada em Psicologia</p>
+                <p className="text-sm text-muted-foreground mt-1">CRP 08/48545</p>
+              </div>
+            </motion.div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Primeira Sessão */}
+      <section id="primeira-sessao" className="py-24 px-6 md:px-12 scroll-mt-20 relative overflow-hidden">
+        <div className="absolute top-1/2 -translate-y-1/2 right-[-15%] w-[40%] h-[60%] rounded-full bg-secondary/20 blur-[120px] pointer-events-none" />
+        
+        <div className="max-w-5xl mx-auto relative z-10">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={FADE_UP}
+            className="text-center mb-16"
+          >
+            <span className="inline-block font-sans uppercase tracking-[0.25em] text-xs text-accent mb-4">Como funciona</span>
+            <h2 className="font-serif text-4xl md:text-5xl text-primary mb-4">A Primeira Sessão</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Um momento de acolhimento, escuta e construção de uma relação de confiança.
+            </p>
+          </motion.div>
+
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={STAGGER}
+            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          >
+            <motion.div variants={FADE_UP} className="bg-card p-8 rounded-2xl border border-border/60 hover:border-accent/40 transition-colors">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="font-serif italic text-2xl text-accent">01</span>
+                <Handshake className="w-5 h-5 text-primary" />
+              </div>
+              <h3 className="font-serif text-xl text-primary mb-2">Primeiro contato</h3>
+              <p className="text-foreground/75 leading-relaxed">
+                Um momento de acolhimento, no qual você traz a sua demanda — aquilo que motivou a busca pela terapia.
+              </p>
+            </motion.div>
+
+            <motion.div variants={FADE_UP} className="bg-card p-8 rounded-2xl border border-border/60 hover:border-accent/40 transition-colors">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="font-serif italic text-2xl text-accent">02</span>
+                <MessageSquare className="w-5 h-5 text-primary" />
+              </div>
+              <h3 className="font-serif text-xl text-primary mb-2">Esclarecimento de dúvidas</h3>
+              <p className="text-foreground/75 leading-relaxed">
+                Um espaço aberto para que você possa tirar todas as dúvidas sobre o processo terapêutico.
+              </p>
+            </motion.div>
+
+            <motion.div variants={FADE_UP} className="bg-card p-8 rounded-2xl border border-border/60 hover:border-accent/40 transition-colors">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="font-serif italic text-2xl text-accent">03</span>
+                <BookOpen className="w-5 h-5 text-primary" />
+              </div>
+              <h3 className="font-serif text-xl text-primary mb-2">Sua história</h3>
+              <p className="text-foreground/75 leading-relaxed">
+                Você compartilha uma breve história sobre sua vida, ajudando a construir um primeiro entendimento do seu contexto.
+              </p>
+            </motion.div>
+
+            <motion.div variants={FADE_UP} className="bg-card p-8 rounded-2xl border border-border/60 hover:border-accent/40 transition-colors">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="font-serif italic text-2xl text-accent">04</span>
+                <FileSignature className="w-5 h-5 text-primary" />
+              </div>
+              <h3 className="font-serif text-xl text-primary mb-2">Contrato terapêutico</h3>
+              <p className="text-foreground/75 leading-relaxed">
+                Explico como funciona o contrato terapêutico e os honorários. Em seguida, paciente e psicóloga assinam, formalizando o início do processo.
+              </p>
+            </motion.div>
+          </motion.div>
+
+          <motion.p 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={FADE_UP}
+            className="text-center text-muted-foreground italic mt-12 font-serif text-lg"
+          >
+            Cada processo é único — respeitamos o seu tempo e o seu ritmo.
+          </motion.p>
         </div>
       </section>
 
