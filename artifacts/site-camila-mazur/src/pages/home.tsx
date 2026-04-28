@@ -6,6 +6,7 @@ import logoCamila from "@assets/logo_camila.png";
 import fotoConsultorio from "@assets/IMG-20260413-WA0002_1777405959341.jpg";
 import fotoFicha from "@assets/MVIMG_20260411_161622_1777405959349.jpg";
 import fotoRetratoClinica from "@assets/IMG_20260411_161427_1777405959354.jpg";
+import { trackVisit } from "@/lib/track-visit";
 
 const FADE_UP = {
   hidden: { opacity: 0, y: 30 },
@@ -18,6 +19,11 @@ const STAGGER = {
 };
 
 export default function Home() {
+  // Track visit on page load
+  useEffect(() => {
+    trackVisit();
+  }, []);
+
   // Smooth scroll
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
