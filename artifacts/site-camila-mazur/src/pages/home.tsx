@@ -3,9 +3,6 @@ import { motion } from "framer-motion";
 import { MapPin, MessageCircle, Instagram, Mail, ChevronDown, ArrowRight, Heart, Sparkles, Phone, GraduationCap, FileSignature, MessageSquare, BookOpen, Handshake, Clock, Users, Building2, Lightbulb, Leaf, Quote } from "lucide-react";
 import fotoCamila from "@assets/foto_camila.jpg";
 import logoCamila from "@assets/logo_camila.png";
-import fotoConsultorio from "@assets/IMG-20260413-WA0002_1777405959341.jpg";
-import fotoFicha from "@assets/MVIMG_20260411_161622_1777405959349.jpg";
-import fotoRetratoClinica from "@assets/IMG_20260411_161427_1777405959354.jpg";
 import { trackVisit } from "@/lib/track-visit";
 
 const FADE_UP = {
@@ -277,23 +274,18 @@ export default function Home() {
             </p>
           </motion.div>
 
-          {/* Featured image */}
+          {/* Featured quote */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="relative mb-12 rounded-3xl overflow-hidden shadow-xl max-w-3xl mx-auto"
+            className="relative mb-12 rounded-3xl bg-primary px-8 py-12 md:py-16 shadow-xl max-w-3xl mx-auto text-center"
           >
-            <img
-              src={fotoFicha}
-              alt="Ficha de cadastro do paciente sendo preenchida no consultório"
-              className="w-full h-64 md:h-96 object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent" />
-            <div className="absolute bottom-6 left-6 right-6 text-white">
-              <p className="font-serif italic text-xl md:text-2xl">"O início de um cuidado que respeita você."</p>
-            </div>
+            <Quote className="w-8 h-8 text-accent mx-auto mb-4 opacity-80" />
+            <p className="font-serif italic text-xl md:text-2xl text-white leading-relaxed">
+              O início de um cuidado que respeita você.
+            </p>
           </motion.div>
 
           <motion.div 
@@ -393,13 +385,6 @@ export default function Home() {
               variants={FADE_UP}
               className="bg-card rounded-3xl border border-border overflow-hidden"
             >
-              <div className="aspect-[4/3] overflow-hidden">
-                <img 
-                  src={fotoConsultorio} 
-                  alt="Camila Mazur no consultório clínico em Campo Largo"
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000"
-                />
-              </div>
               <div className="p-10 md:p-14">
               <h3 className="font-serif text-3xl text-primary mb-6 flex items-center gap-4">
                 <span className="w-12 h-[1px] bg-accent"></span>
