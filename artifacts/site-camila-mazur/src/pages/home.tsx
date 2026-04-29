@@ -4,6 +4,7 @@ import { MapPin, MessageCircle, Instagram, Mail, ChevronDown, ArrowRight, Heart,
 import fotoCamila from "@assets/foto_camila.jpg";
 import logoCamila from "@assets/logo_camila.png";
 import { trackVisit } from "@/lib/track-visit";
+import ContactFormSection from "@/components/ContactFormSection";
 
 const FADE_UP = {
   hidden: { opacity: 0, y: 30 },
@@ -87,15 +88,13 @@ export default function Home() {
           <button onClick={() => scrollTo("organizacional")} className="hover:text-accent transition-colors">Organizacional</button>
           <button onClick={() => scrollTo("contato")} className="hover:text-accent transition-colors">Contato</button>
         </div>
-        <a 
-          href="https://wa.me/5541991275204" 
-          target="_blank" 
-          rel="noopener noreferrer"
+        <button
+          onClick={() => scrollTo("agendar")}
           className="bg-primary text-primary-foreground px-5 py-2.5 rounded-full text-sm font-medium hover:bg-primary/90 transition-colors flex items-center gap-2"
         >
           <MessageCircle className="w-4 h-4" />
           <span className="hidden sm:inline">Agendar</span>
-        </a>
+        </button>
       </nav>
 
       {/* Hero Section */}
@@ -125,15 +124,22 @@ export default function Home() {
             Psicóloga Clínica e Organizacional. Uma abordagem sistêmica com respeito à sua história e ao seu processo.
           </motion.p>
           
-          <motion.div variants={FADE_UP} className="flex flex-col sm:flex-row items-center gap-4">
-            <a 
-              href="https://wa.me/5541991275204" 
-              target="_blank" 
-              rel="noopener noreferrer"
+          <motion.div variants={FADE_UP} className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <button
+              onClick={() => scrollTo("agendar")}
               className="bg-primary text-primary-foreground px-8 py-4 rounded-full text-base font-medium hover:bg-primary/90 transition-all flex items-center gap-2 hover:scale-105"
             >
-              Entre em contato
+              Solicitar contato
               <ArrowRight className="w-4 h-4" />
+            </button>
+            <a
+              href="https://wa.me/5541991275204"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-card text-primary border border-border px-8 py-4 rounded-full text-base font-medium hover:bg-secondary/50 transition-all flex items-center gap-2 hover:scale-105"
+            >
+              <MessageCircle className="w-4 h-4" />
+              WhatsApp
             </a>
           </motion.div>
 
@@ -500,6 +506,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Contact Form Section */}
+      <ContactFormSection />
 
       {/* CTA / Footer */}
       <footer id="contato" className="bg-[#E5D5C5]/20 pt-24 pb-12 px-6 md:px-12 mt-auto border-t border-border scroll-mt-32">

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Lock, Eye, Users, TrendingUp, Calendar, Clock, LogOut, RefreshCw } from "lucide-react";
+import { Lock, Eye, Users, TrendingUp, Calendar, Clock, LogOut, RefreshCw, Mail, MessageCircle, Phone, CheckCircle2, Inbox } from "lucide-react";
 import logoCamila from "@assets/logo_camila.png";
 
 const STORAGE_KEY = "admin_token";
@@ -25,6 +25,22 @@ interface Stats {
   recent: RecentRow[];
 }
 
+interface ContactRow {
+  id: number;
+  name: string;
+  phone: string;
+  email: string | null;
+  modality: string | null;
+  message: string | null;
+  read: boolean;
+  createdAt: string;
+}
+
+interface ContactsData {
+  contacts: ContactRow[];
+  unreadCount: number;
+}
+
 function formatDate(iso: string) {
   const date = new Date(iso);
   return date.toLocaleString("pt-BR", {
@@ -47,28 +63,30 @@ export default function Admin() {
   });
   const [password, setPassword] = useState("");
   const [stats, setStats] = useState<Stats | null>(null);
+  const [contactsData, setContactsData] = useState<ContactsData | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const loadStats = async (t: string) => {
+  const loadAll = async (t: string) => {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch("/api/admin/stats", {
-        headers: { Authorization: `Bearer ${t}` },
-      });
-      if (res.status === 401) {
+      const [statsRes, contactsRes] = await Promise.all([
+        fetch("/api/admin/stats", { headers: { Authorization: `Bearer ${t}` } }),
+        fetch("/api/admin/contacts", { headers: { Authorization: `Bearer ${t}` } }),
+      ]);
+      if (statsRes.status === 401 || contactsRes.status === 401) {
         sessionStorage.removeItem(STORAGE_KEY);
         setToken("");
         setError("Senha incorreta");
         return;
       }
-      if (!res.ok) {
-        setError("Não foi possível carregar as estatísticas");
+      if (!statsRes.ok || !contactsRes.ok) {
+        setError("Não foi possível carregar os dados");
         return;
       }
-      const data: Stats = await res.json();
-      setStats(data);
+      setStats(await statsRes.json());
+      setContactsData(await contactsRes.json());
     } catch {
       setError("Erro de conexão");
     } finally {
@@ -76,9 +94,30 @@ export default function Admin() {
     }
   };
 
+  const markAsRead = async (id: number) => {
+    try {
+      await fetch(`/api/admin/contacts/${id}/read`, {
+        method: "POST",
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      setContactsData((prev) =>
+        prev
+          ? {
+              contacts: prev.contacts.map((c) =>
+                c.id === id ? { ...c, read: true } : c
+              ),
+              unreadCount: Math.max(0, prev.unreadCount - 1),
+            }
+          : prev
+      );
+    } catch {
+      // ignore
+    }
+  };
+
   useEffect(() => {
     if (token) {
-      loadStats(token);
+      loadAll(token);
     }
   }, [token]);
 
@@ -150,7 +189,7 @@ export default function Admin() {
           </div>
           <div className="flex items-center gap-2">
             <button
-              onClick={() => loadStats(token)}
+              onClick={() => loadAll(token)}
               disabled={loading}
               className="flex items-center gap-2 px-3 py-2 rounded-full text-sm border border-border hover:bg-secondary/40 transition-colors disabled:opacity-50"
               aria-label="Atualizar"
@@ -178,6 +217,91 @@ export default function Admin() {
 
         {!stats && loading && (
           <p className="text-center text-muted-foreground py-12">Carregando…</p>
+        )}
+
+        {contactsData && (
+          <section className="bg-card p-6 md:p-8 rounded-3xl border border-border">
+            <div className="flex items-center justify-between mb-6 flex-wrap gap-3">
+              <h2 className="font-serif text-xl text-primary flex items-center gap-2">
+                <Inbox className="w-5 h-5" />
+                Pedidos de contato
+              </h2>
+              {contactsData.unreadCount > 0 && (
+                <span className="bg-accent text-white text-xs font-medium px-3 py-1.5 rounded-full">
+                  {contactsData.unreadCount} novo{contactsData.unreadCount === 1 ? "" : "s"}
+                </span>
+              )}
+            </div>
+            {contactsData.contacts.length === 0 ? (
+              <p className="text-muted-foreground text-sm py-6 text-center">
+                Nenhum pedido de contato ainda. Quando alguém preencher o formulário do site, vai aparecer aqui.
+              </p>
+            ) : (
+              <ul className="space-y-4">
+                {contactsData.contacts.map((c) => (
+                  <li
+                    key={c.id}
+                    className={`p-5 rounded-2xl border transition-colors ${
+                      c.read
+                        ? "border-border bg-background/40"
+                        : "border-accent/40 bg-accent/5"
+                    }`}
+                  >
+                    <div className="flex items-start justify-between gap-3 mb-3 flex-wrap">
+                      <div>
+                        <p className="font-serif text-lg text-primary flex items-center gap-2">
+                          {c.name}
+                          {!c.read && (
+                            <span className="text-[10px] uppercase tracking-wider bg-accent text-white px-2 py-0.5 rounded-full">
+                              Novo
+                            </span>
+                          )}
+                        </p>
+                        <p className="text-xs text-muted-foreground mt-0.5">
+                          {formatDate(c.createdAt)}
+                          {c.modality ? ` · ${c.modality}` : ""}
+                        </p>
+                      </div>
+                      {!c.read && (
+                        <button
+                          onClick={() => markAsRead(c.id)}
+                          className="text-xs flex items-center gap-1 text-muted-foreground hover:text-primary transition-colors"
+                        >
+                          <CheckCircle2 className="w-3.5 h-3.5" />
+                          Marcar como lido
+                        </button>
+                      )}
+                    </div>
+                    <div className="flex flex-wrap gap-3 text-sm mb-3">
+                      <a
+                        href={`https://wa.me/55${c.phone.replace(/\D/g, "")}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+                      >
+                        <MessageCircle className="w-3.5 h-3.5" />
+                        {c.phone}
+                      </a>
+                      {c.email && (
+                        <a
+                          href={`mailto:${c.email}`}
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary/40 text-foreground/80 hover:bg-secondary/60 transition-colors"
+                        >
+                          <Mail className="w-3.5 h-3.5" />
+                          {c.email}
+                        </a>
+                      )}
+                    </div>
+                    {c.message && (
+                      <p className="text-sm text-foreground/80 leading-relaxed bg-background/60 rounded-xl p-3 border border-border/40">
+                        {c.message}
+                      </p>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </section>
         )}
 
         {stats && (
