@@ -204,14 +204,6 @@ export default function Home() {
                 className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-1000"
               />
             </div>
-            {/* Floating polaroid-style second photo */}
-            <div className="hidden md:block absolute -top-6 -left-6 w-32 h-40 lg:w-40 lg:h-52 rounded-xl overflow-hidden shadow-2xl border-4 border-background rotate-[-6deg] hover:rotate-0 transition-transform duration-500">
-              <img 
-                src={fotoRetratoClinica} 
-                alt="Camila Mazur no consultório" 
-                className="w-full h-full object-cover"
-              />
-            </div>
             {/* Decorative badge */}
             <div className="absolute -bottom-6 -right-6 md:-right-12 bg-background p-6 rounded-2xl shadow-xl border border-border/50 max-w-[200px]">
               <p className="font-serif italic text-xl text-primary mb-1">CRP</p>
