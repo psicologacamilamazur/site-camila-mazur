@@ -114,7 +114,7 @@ export default function Home() {
             variants={FADE_UP}
             src={logoCamila} 
             alt="Logo Psicóloga Camila Mazur" 
-            className="w-24 md:w-32 mb-8 opacity-90"
+            className="w-44 md:w-56 lg:w-64 mb-8 opacity-90"
           />
           
           <motion.h1 variants={FADE_UP} className="font-serif text-[2.5rem] sm:text-5xl md:text-7xl lg:text-8xl leading-[1.05] mb-4 text-primary text-balance px-2">
