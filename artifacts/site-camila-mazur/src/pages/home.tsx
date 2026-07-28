@@ -1,9 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { MapPin, MessageCircle, Instagram, Mail, ChevronDown, ArrowRight, Heart, Sparkles, Phone, GraduationCap, FileSignature, MessageSquare, BookOpen, Handshake, Clock, Users, Building2, Lightbulb, Leaf, Quote } from "lucide-react";
 import fotoCamila from "@assets/foto_camila.jpg";
 import logoCamila from "@assets/logo_camila.png";
-import { trackVisit } from "@/lib/track-visit";
 import ContactFormSection from "@/components/ContactFormSection";
 
 const FADE_UP = {
@@ -17,11 +16,6 @@ const STAGGER = {
 };
 
 export default function Home() {
-  // Track visit on page load
-  useEffect(() => {
-    trackVisit();
-  }, []);
-
   // Smooth scroll
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
