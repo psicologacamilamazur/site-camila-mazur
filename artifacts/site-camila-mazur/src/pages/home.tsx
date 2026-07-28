@@ -184,6 +184,99 @@ export default function Home() {
         </motion.div>
       </section>
 
+      {/* Navigation Hub Section */}
+      <section id="navegacao" className="py-20 px-6 md:px-12 bg-background scroll-mt-32">
+        <div className="max-w-5xl mx-auto">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={STAGGER}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
+          >
+            {/* Quem sou eu */}
+            <motion.button
+              variants={FADE_UP}
+              onClick={() => scrollTo("sobre")}
+              className="group text-left bg-card border border-border hover:border-accent/60 rounded-3xl p-8 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1"
+            >
+              <div className="w-12 h-12 rounded-2xl bg-secondary/60 group-hover:bg-accent/20 transition-colors flex items-center justify-center mb-5">
+                <Heart className="w-5 h-5 text-accent" />
+              </div>
+              <h3 className="font-serif text-2xl text-primary mb-2">Quem sou eu</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">Conheça minha trajetória, formação e a abordagem que guia meu trabalho.</p>
+              <span className="mt-4 inline-flex items-center gap-1.5 text-xs font-medium text-accent">
+                Saiba mais <ArrowRight className="w-3 h-3" />
+              </span>
+            </motion.button>
+
+            {/* Primeira Sessão */}
+            <motion.button
+              variants={FADE_UP}
+              onClick={() => scrollTo("primeira-sessao")}
+              className="group text-left bg-card border border-border hover:border-accent/60 rounded-3xl p-8 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1"
+            >
+              <div className="w-12 h-12 rounded-2xl bg-secondary/60 group-hover:bg-accent/20 transition-colors flex items-center justify-center mb-5">
+                <Sparkles className="w-5 h-5 text-accent" />
+              </div>
+              <h3 className="font-serif text-2xl text-primary mb-2">Primeira Sessão</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">Entenda como funciona o início do processo terapêutico e o que esperar.</p>
+              <span className="mt-4 inline-flex items-center gap-1.5 text-xs font-medium text-accent">
+                Saiba mais <ArrowRight className="w-3 h-3" />
+              </span>
+            </motion.button>
+
+            {/* Atendimento Clínico */}
+            <motion.button
+              variants={FADE_UP}
+              onClick={() => scrollTo("clinica")}
+              className="group text-left bg-card border border-border hover:border-accent/60 rounded-3xl p-8 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1"
+            >
+              <div className="w-12 h-12 rounded-2xl bg-secondary/60 group-hover:bg-accent/20 transition-colors flex items-center justify-center mb-5">
+                <Leaf className="w-5 h-5 text-accent" />
+              </div>
+              <h3 className="font-serif text-2xl text-primary mb-2">Atendimento Clínico</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">Psicoterapia individual para adultos, presencial em Curitiba ou online.</p>
+              <span className="mt-4 inline-flex items-center gap-1.5 text-xs font-medium text-accent">
+                Saiba mais <ArrowRight className="w-3 h-3" />
+              </span>
+            </motion.button>
+
+            {/* Atendimento Organizacional */}
+            <motion.button
+              variants={FADE_UP}
+              onClick={() => scrollTo("organizacional")}
+              className="group text-left bg-card border border-border hover:border-accent/60 rounded-3xl p-8 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1"
+            >
+              <div className="w-12 h-12 rounded-2xl bg-secondary/60 group-hover:bg-accent/20 transition-colors flex items-center justify-center mb-5">
+                <Building2 className="w-5 h-5 text-accent" />
+              </div>
+              <h3 className="font-serif text-2xl text-primary mb-2">Organizacional</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">Serviços de psicologia para empresas: saúde mental, RH e desenvolvimento de equipes.</p>
+              <span className="mt-4 inline-flex items-center gap-1.5 text-xs font-medium text-accent">
+                Saiba mais <ArrowRight className="w-3 h-3" />
+              </span>
+            </motion.button>
+
+            {/* Agendar */}
+            <motion.button
+              variants={FADE_UP}
+              onClick={() => scrollTo("agendar")}
+              className="group text-left sm:col-span-2 lg:col-span-2 bg-primary/5 border border-primary/20 hover:border-primary/50 hover:bg-primary/10 rounded-3xl p-8 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1"
+            >
+              <div className="w-12 h-12 rounded-2xl bg-primary/15 group-hover:bg-primary/25 transition-colors flex items-center justify-center mb-5">
+                <MessageCircle className="w-5 h-5 text-primary" />
+              </div>
+              <h3 className="font-serif text-2xl text-primary mb-2">Agendar uma conversa</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">Entre em contato para tirar dúvidas ou agendar sua primeira sessão. Sem compromisso.</p>
+              <span className="mt-4 inline-flex items-center gap-1.5 text-xs font-medium text-primary">
+                Entrar em contato <ArrowRight className="w-3 h-3" />
+              </span>
+            </motion.button>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Sobre Section */}
       <section id="sobre" className="py-24 px-6 md:px-12 bg-card relative scroll-mt-32">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
