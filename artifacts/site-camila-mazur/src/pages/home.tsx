@@ -559,6 +559,79 @@ export default function Home() {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section className="py-24 px-6 md:px-12 bg-card scroll-mt-32">
+        <div className="max-w-3xl mx-auto">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={FADE_UP}
+            className="text-center mb-14"
+          >
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <span className="w-10 h-10 rounded-full bg-secondary/60 flex items-center justify-center">
+                <MessageSquare className="w-4 h-4 text-primary" />
+              </span>
+              <span className="font-sans uppercase tracking-[0.25em] text-xs text-accent">Dúvidas</span>
+            </div>
+            <h2 className="font-serif text-4xl md:text-5xl text-primary mb-4">Perguntas frequentes</h2>
+            <p className="text-muted-foreground text-lg max-w-xl mx-auto">Respostas para as dúvidas mais comuns antes de iniciar o processo.</p>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={STAGGER}
+            className="space-y-4"
+          >
+            {[
+              {
+                q: "Aceita convênio?",
+                a: "No momento, infelizmente ainda não trabalhamos com convênios. O atendimento é particular. Caso tenha interesse, entre em contato para conversarmos sobre as condições.",
+              },
+              {
+                q: "Quais formas de pagamento são aceitas?",
+                a: "Aceitamos dinheiro, PIX, cartão de débito e cartão de crédito. O pagamento é realizado no momento do atendimento.",
+              },
+              {
+                q: "Qual o valor da sessão?",
+                a: "O valor é combinado diretamente com a psicóloga. Entre em contato pelo WhatsApp para saber mais — sem compromisso.",
+              },
+              {
+                q: "Como funciona a primeira sessão?",
+                a: "A primeira sessão é um espaço de escuta e acolhimento. Você conta o que te trouxe até aqui, tiramos dúvidas sobre o processo e combinamos como será a continuidade — sem pressão, no seu tempo.",
+              },
+              {
+                q: "Atende de forma online?",
+                a: "Sim! Além do atendimento presencial em Campo Largo/PR, também realizo sessões online para todo o Brasil, com a mesma qualidade e ética do atendimento presencial.",
+              },
+              {
+                q: "Com que frequência acontecem as sessões?",
+                a: "Em geral, as sessões são semanais com duração de 50 minutos cada. A frequência pode ser ajustada conforme o processo terapêutico e a necessidade de cada pessoa.",
+              },
+              {
+                q: "Preciso estar em crise para buscar psicólogo?",
+                a: "Não existe momento certo. Muitas pessoas buscam terapia para se conhecer melhor, lidar com situações do cotidiano ou simplesmente cuidar da saúde emocional. Buscar ajuda é um ato de cuidado consigo mesmo.",
+              },
+            ].map(({ q, a }, i) => (
+              <motion.details
+                key={i}
+                variants={FADE_UP}
+                className="group bg-background border border-border rounded-2xl overflow-hidden"
+              >
+                <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none font-serif text-lg text-primary select-none hover:text-accent transition-colors">
+                  {q}
+                  <ChevronDown className="w-5 h-5 flex-shrink-0 text-accent transition-transform duration-300 group-open:rotate-180" />
+                </summary>
+                <p className="px-6 pb-6 text-foreground/70 leading-relaxed">{a}</p>
+              </motion.details>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
       {/* CTA / Footer */}
       <footer id="contato" className="bg-[#E5D5C5]/20 pt-24 pb-12 px-6 md:px-12 mt-auto border-t border-border scroll-mt-32">
         <div className="max-w-6xl mx-auto">
