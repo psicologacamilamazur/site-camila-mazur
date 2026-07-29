@@ -137,41 +137,6 @@ export default function Home() {
             </a>
           </motion.div>
 
-          {/* Quick Access Buttons */}
-          <motion.div 
-            variants={FADE_UP}
-            className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-3xl"
-          >
-            <button
-              onClick={() => scrollTo("sobre")}
-              className="group flex items-center justify-center gap-3 bg-card/80 backdrop-blur-sm border border-border hover:border-accent/60 hover:bg-card px-6 py-5 rounded-2xl shadow-sm hover:shadow-md transition-all hover:-translate-y-1"
-            >
-              <div className="w-10 h-10 rounded-full bg-secondary/60 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
-                <Heart className="w-4 h-4 text-primary" />
-              </div>
-              <span className="font-serif text-lg text-primary">Quem eu sou</span>
-            </button>
-
-            <button
-              onClick={() => scrollTo("areas")}
-              className="group flex items-center justify-center gap-3 bg-card/80 backdrop-blur-sm border border-border hover:border-accent/60 hover:bg-card px-6 py-5 rounded-2xl shadow-sm hover:shadow-md transition-all hover:-translate-y-1"
-            >
-              <div className="w-10 h-10 rounded-full bg-secondary/60 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
-                <Sparkles className="w-4 h-4 text-primary" />
-              </div>
-              <span className="font-serif text-lg text-primary">Áreas de atuação</span>
-            </button>
-
-            <button
-              onClick={() => scrollTo("contato")}
-              className="group flex items-center justify-center gap-3 bg-card/80 backdrop-blur-sm border border-border hover:border-accent/60 hover:bg-card px-6 py-5 rounded-2xl shadow-sm hover:shadow-md transition-all hover:-translate-y-1"
-            >
-              <div className="w-10 h-10 rounded-full bg-secondary/60 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
-                <Phone className="w-4 h-4 text-primary" />
-              </div>
-              <span className="font-serif text-lg text-primary">Contato</span>
-            </button>
-          </motion.div>
         </motion.div>
 
         <motion.div 
@@ -593,9 +558,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Contact Form Section */}
-      <ContactFormSection />
 
       {/* CTA / Footer */}
       <footer id="contato" className="bg-[#E5D5C5]/20 pt-24 pb-12 px-6 md:px-12 mt-auto border-t border-border scroll-mt-32">
