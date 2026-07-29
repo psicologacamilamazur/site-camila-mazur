@@ -632,6 +632,89 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Location Section */}
+      <section className="py-24 px-6 md:px-12 bg-background scroll-mt-32">
+        <div className="max-w-5xl mx-auto">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={FADE_UP}
+            className="text-center mb-12"
+          >
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <span className="w-10 h-10 rounded-full bg-secondary/60 flex items-center justify-center">
+                <MapPin className="w-4 h-4 text-primary" />
+              </span>
+              <span className="font-sans uppercase tracking-[0.25em] text-xs text-accent">Localização</span>
+            </div>
+            <h2 className="font-serif text-4xl md:text-5xl text-primary mb-4">Atendimento presencial</h2>
+            <p className="text-muted-foreground text-lg max-w-xl mx-auto">
+              Consultório localizado no centro de Campo Largo, com fácil acesso.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={FADE_UP}
+            className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center"
+          >
+            {/* Map */}
+            <div className="rounded-3xl overflow-hidden border border-border shadow-sm h-72 lg:h-96">
+              <iframe
+                title="Localização do consultório"
+                src="https://maps.google.com/maps?q=Av+Arlindo+Chemin+50+Centro+Campo+Largo+PR+Brasil&output=embed&hl=pt-BR"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+
+            {/* Address info */}
+            <div className="space-y-6">
+              <div className="bg-card border border-border rounded-3xl p-8 space-y-5">
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-2xl bg-secondary/60 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <MapPin className="w-4 h-4 text-accent" />
+                  </div>
+                  <div>
+                    <p className="font-medium text-primary mb-1">Endereço</p>
+                    <p className="text-muted-foreground">Av. Arlindo Chemin, 50</p>
+                    <p className="text-muted-foreground">Centro, Campo Largo — PR</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-2xl bg-secondary/60 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Clock className="w-4 h-4 text-accent" />
+                  </div>
+                  <div>
+                    <p className="font-medium text-primary mb-1">Modalidades</p>
+                    <p className="text-muted-foreground">Presencial em Campo Largo / PR</p>
+                    <p className="text-muted-foreground">Online para todo o Brasil</p>
+                  </div>
+                </div>
+              </div>
+
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Av.+Arlindo+Chemin,+50,+Centro,+Campo+Largo,+Paraná"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-7 py-4 rounded-full font-medium hover:bg-primary/90 transition-all hover:scale-105"
+              >
+                <MapPin className="w-4 h-4" />
+                Abrir no Google Maps
+              </a>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* CTA / Footer */}
       <footer id="contato" className="bg-[#E5D5C5]/20 pt-24 pb-12 px-6 md:px-12 mt-auto border-t border-border scroll-mt-32">
         <div className="max-w-6xl mx-auto">
