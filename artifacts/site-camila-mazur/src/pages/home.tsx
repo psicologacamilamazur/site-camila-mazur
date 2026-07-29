@@ -489,6 +489,16 @@ export default function Home() {
                   </p>
                 </div>
               </div>
+
+              <a
+                href="https://wa.me/5541991275204?text=Ol%C3%A1%2C%20Camila!%20Gostaria%20de%20saber%20mais%20sobre%20o%20atendimento%20cl%C3%ADnico%20e%20agendar%20minha%20primeira%20sess%C3%A3o."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 inline-flex items-center gap-2 bg-primary text-primary-foreground px-7 py-4 rounded-full font-medium hover:bg-primary/90 transition-all hover:scale-105"
+              >
+                <MessageCircle className="w-4 h-4" />
+                Agendar primeira sessão
+              </a>
               </div>
             </motion.div>
 
@@ -499,9 +509,8 @@ export default function Home() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={FADE_UP}
-              className="bg-primary text-primary-foreground p-10 md:p-14 rounded-3xl relative overflow-hidden"
+              className="bg-primary text-primary-foreground p-10 md:p-14 rounded-3xl relative overflow-hidden flex flex-col"
             >
-              {/* Subtle background blob */}
               <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-[50px] pointer-events-none" />
               
               <h3 className="font-serif text-3xl mb-6 flex items-center gap-4 relative z-10">
@@ -509,50 +518,61 @@ export default function Home() {
                 Atuação Organizacional
               </h3>
               
-              <div className="space-y-8 relative z-10">
+              <div className="space-y-8 relative z-10 flex-1">
                 <div>
                   <h4 className="font-sans font-semibold text-sm uppercase tracking-wider text-primary-foreground/60 mb-2">Público</h4>
                   <p className="text-primary-foreground/90 leading-relaxed">
                     Empresas de pequeno e médio porte.
                   </p>
                 </div>
-                
+
                 <div>
-                  <h4 className="font-sans font-semibold text-sm uppercase tracking-wider text-primary-foreground/60 mb-2">Serviços Oferecidos</h4>
-                  <ul className="space-y-3 text-primary-foreground/90">
-                    <li className="flex items-start gap-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-accent mt-2 shrink-0" />
-                      Treinamento e desenvolvimento de Lideranças
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-accent mt-2 shrink-0" />
-                      Pesquisa de Clima, Cultura e Satisfação Organizacional
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-accent mt-2 shrink-0" />
-                      Palestras sobre saúde mental (Janeiro Branco, Setembro Amarelo, SIPAT, entre outros)
-                    </li>
+                  <h4 className="font-sans font-semibold text-sm uppercase tracking-wider text-primary-foreground/60 mb-3">Desenvolvimento de Lideranças</h4>
+                  <ul className="space-y-2 text-primary-foreground/90">
+                    <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 rounded-full bg-accent mt-2 shrink-0" />Treinamento e desenvolvimento de lideranças</li>
+                    <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 rounded-full bg-accent mt-2 shrink-0" />Mentoria individual para gestores</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="font-sans font-semibold text-sm uppercase tracking-wider text-primary-foreground/60 mb-3">Equipes e Cultura</h4>
+                  <ul className="space-y-2 text-primary-foreground/90">
+                    <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 rounded-full bg-accent mt-2 shrink-0" />Dinâmicas de grupo e team building</li>
+                    <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 rounded-full bg-accent mt-2 shrink-0" />Mediação de conflitos entre colaboradores</li>
+                    <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 rounded-full bg-accent mt-2 shrink-0" />Mapeamento de perfil comportamental (DISC)</li>
+                    <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 rounded-full bg-accent mt-2 shrink-0" />Pesquisa de Clima, Cultura e Satisfação Organizacional</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="font-sans font-semibold text-sm uppercase tracking-wider text-primary-foreground/60 mb-3">Saúde Mental e Bem-estar</h4>
+                  <ul className="space-y-2 text-primary-foreground/90">
+                    <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 rounded-full bg-accent mt-2 shrink-0" />Programa de Qualidade de Vida no Trabalho (QVT)</li>
+                    <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 rounded-full bg-accent mt-2 shrink-0" />Gestão de mudanças organizacionais</li>
+                    <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 rounded-full bg-accent mt-2 shrink-0" />Palestras de saúde mental (Janeiro Branco, Setembro Amarelo, SIPAT)</li>
                   </ul>
                 </div>
 
                 <div>
                   <h4 className="font-sans font-semibold text-sm uppercase tracking-wider text-primary-foreground/60 mb-2">Metodologia</h4>
                   <ul className="space-y-2 text-primary-foreground/90">
-                    <li className="flex items-center gap-2">
-                      <span className="text-accent/80 font-serif italic text-lg">01.</span> Escuta ativa e observação
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="text-accent/80 font-serif italic text-lg">02.</span> Planejamento Estratégico
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="text-accent/80 font-serif italic text-lg">03.</span> Intervenção e Desenvolvimento
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="text-accent/80 font-serif italic text-lg">04.</span> Acompanhamento de Resultados
-                    </li>
+                    <li className="flex items-center gap-2"><span className="text-accent/80 font-serif italic text-lg">01.</span> Escuta ativa e observação</li>
+                    <li className="flex items-center gap-2"><span className="text-accent/80 font-serif italic text-lg">02.</span> Planejamento Estratégico</li>
+                    <li className="flex items-center gap-2"><span className="text-accent/80 font-serif italic text-lg">03.</span> Intervenção e Desenvolvimento</li>
+                    <li className="flex items-center gap-2"><span className="text-accent/80 font-serif italic text-lg">04.</span> Acompanhamento de Resultados</li>
                   </ul>
                 </div>
               </div>
+
+              <a
+                href="https://wa.me/5541991275204?text=Ol%C3%A1%2C%20Camila!%20Sou%20de%20uma%20empresa%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os%20de%20psicologia%20organizacional."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative z-10 mt-8 inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-primary-foreground px-7 py-4 rounded-full font-medium transition-all hover:scale-105"
+              >
+                <MessageCircle className="w-4 h-4" />
+                Solicitar proposta para empresa
+              </a>
             </motion.div>
 
           </div>
